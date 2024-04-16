@@ -67,6 +67,7 @@ node {
 
 		
 		stage('Download the difference') {
+			rc = command "git fetch"
 		    rc = command "${toolbelt}/sfdx sgd:source:delta --to development3 --from main --output ."
 		//	rc = command "${toolbelt}/sfdx force:source:deploy -x ${DEPLOYDIR} --targetusername UAT"
 		    if (rc != 0) {
