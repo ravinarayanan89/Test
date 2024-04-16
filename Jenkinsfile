@@ -24,7 +24,13 @@ node {
 }
 
 
-
+stage('Install sgd-git-delta plugin') {
+            steps {
+                script {
+                    bat 'echo y | sfdx plugins:install sfdx-git-delta'
+                }
+            }
+        }
 		
     stage('checkout source') {
         checkout scm
