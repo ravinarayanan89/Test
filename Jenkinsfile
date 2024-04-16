@@ -66,7 +66,7 @@ node {
 
 		
 		stage('Download the difference') {
-		    rc = command "${toolbelt}sfdx sgd:source:delta --to development3 --from main --output ."
+		    rc = command "${toolbelt}/sfdx sgd:source:delta --to development3 --from main --output ."
 		//	rc = command "${toolbelt}/sfdx force:source:deploy -x ${DEPLOYDIR} --targetusername UAT"
 		    if (rc != 0) {
 			error 'Salesforce deploy and test run failed.'
@@ -75,7 +75,7 @@ node {
 
 
 		stage('Deploy to Salesforce') {
-		    rc = command "${toolbelt}sfdx force:source:deploy -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml"
+		    rc = command "${toolbelt}/sfdx force:source:deploy -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml"
 		//	rc = command "${toolbelt}/sfdx force:source:deploy -x ${DEPLOYDIR} --targetusername UAT"
 		    if (rc != 0) {
 			error 'Salesforce deploy and test run failed.'
