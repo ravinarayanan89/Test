@@ -58,6 +58,7 @@ node {
 		// -------------------------------------------------------------------------
 
 		stage('Download the Main') {
+			  rc = command "git checkout development3"
 		    rc = command "git checkout main"
 		//	rc = command "${toolbelt}/sfdx force:source:deploy -x ${DEPLOYDIR} --targetusername UAT"
 		    if (rc != 0) {
@@ -68,6 +69,7 @@ node {
 		
 		stage('Download the difference') {
 			rc = command "git fetch"
+			rc = command "git fetch --unshallow"
 		    rc = command "${toolbelt}/sfdx sgd:source:delta --to development3 --from main --output ."
 		//	rc = command "${toolbelt}/sfdx force:source:deploy -x ${DEPLOYDIR} --targetusername UAT"
 		    if (rc != 0) {
