@@ -8,11 +8,14 @@
 public class AccountCreation implements DataRecordInterface{
 
     
-    
+    //Adding a new commit for create Account Record
     public  void createRecord(){ 
         	Account a = new Account();
             a.Name = 'Ravi';
             a.BillingCountry = 'US';
             insert a;
+
+            //Declaring new contact
+            Contact c = new Contact();
     }
 }
